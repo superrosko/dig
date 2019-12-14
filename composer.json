@@ -1,0 +1,34 @@
+{
+  "name": "superrosko/dig",
+  "description": "DNS resolver for PHP",
+  "homepage": "https://github.com/superrosko/dig",
+  "license": "MIT",
+  "version": "0.0.1",
+  "require": {
+    "php": ">=7.1.0",
+    "ext-json": "*",
+    "ext-intl": "*",
+    "ext-redis": "*"
+  },
+  "require-dev": {
+
+  },
+  "keywords": [
+    "dns",
+    "dns-resolver",
+    "dns_get_record"
+  ],
+  "authors": [
+    {
+      "name": "Dmitriy Bespalov",
+      "email": "dbespalov.rosko@gmail.com",
+      "homepage": "https://rdevelab.ru",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Superrosko\\Dig\\": "src/"
+    }
+  }
+}

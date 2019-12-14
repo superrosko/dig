@@ -1,0 +1,14 @@
+{
+  "require": {
+
+  },
+  "require-dev": {
+
+  },
+  "autoload": {
+    "psr-4": {
+      "DigExamples\\": "src/",
+      "Superrosko\\Dig\\": "../src/"
+    }
+  }
+}
