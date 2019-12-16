@@ -90,20 +90,16 @@ abstract class AbstractExecutor implements ExecutorInterface
         for ($i = 0; $i < $count; $i++) {
             $records = null;
             if ($this->cache instanceof CacheEntitiesInterface) {
-                $time = microtime(true);
                 $records = $this->cache->get($chunkedDomain[$i]);
-                echo 'Cache get time: ' . (microtime(true) - $time) . PHP_EOL;
             }
 
             if (is_null($records)) {
                 $records = $this->getRecords($chunkedDomain[$i], DNS_NS, $server, [], true);
                 if ($this->cache instanceof CacheEntitiesInterface) {
-                    $time = microtime(true);
                     $this->cache->set($chunkedDomain[$i], $records);
-                    echo 'Cache set time: ' . (microtime(true) - $time) . PHP_EOL;
                 }
             }
-            
+
             $record = self::getRandomRecord($records);
             $server = AbstractResourceRecord::getServer($record);
         }
