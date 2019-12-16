@@ -10,6 +10,17 @@ class ResourceRecordDigCommand extends AbstractResourceRecord
 {
     use TraitResourceRecord;
 
+    const PROP_HOST = 0; // Index of host value in resource record array
+    const PROP_CLASS = 2; // Index of class value in resource record array
+    const PROP_TTL = 1; // Index of ttl value in resource record array
+    const PROP_TYPE = 3; // Index of type value in resource record array
+    const PROP_DATA = 4; // Index of data value in resource record array
+
+    /**
+     * @var array
+     */
+    protected $opt = [];
+
     /**
      * @inheritDoc
      */
@@ -27,21 +38,60 @@ class ResourceRecordDigCommand extends AbstractResourceRecord
      */
     public function getNS($record, bool $resolve = false)
     {
-        $recordProps = explode(' ', preg_replace('!\s+!', ' ', $record));
-        if (($recordProps[3] ?? '') != $this->convertType()) {
-            return null;
+        return $this->getCommon($record, $resolve);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getA($record, bool $resolve = false)
+    {
+        return $this->getCommon($record, $resolve);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getTXT($record, bool $resolve = false)
+    {
+        return $this->getCommon($record, $resolve);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getCNAME($record, bool $resolve = false)
+    {
+        return $this->getCommon($record, $resolve);
+    }
+
+    /**
+     * @param $record
+     * @param bool $resolve
+     * @return Record|null
+     */
+    public function getCommon($record, bool $resolve = false)
+    {
+        if ($recordProps = $this->parseRecord($record)) {
+            $this->resolveIp($recordProps[self::PROP_DATA] ?? '', $resolve);
+            $data = implode(' ', array_slice($recordProps, self::PROP_DATA, count($recordProps)));
+            return new Record(
+                trim($recordProps[self::PROP_HOST] ?? '', '\.'),
+                $recordProps[self::PROP_CLASS] ?? '',
+                $recordProps[self::PROP_TTL] ?? '',
+                $recordProps[self::PROP_TYPE] ?? '',
+                trim($data, '\.'),
+                $this->opt
+            );
         }
-        $opt = [];
-        if ($resolve) {
-            $opt['target_ip'] = gethostbyname($recordProps['4'] ?? '');
-        }
-        return new Record(
-            trim($recordProps[0] ?? '', '\.'),
-            $recordProps[2] ?? '',
-            $recordProps[1] ?? '',
-            $recordProps[3] ?? '',
-            trim($recordProps[4] ?? '', '\.'),
-            $opt
-        );
+        return null;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getRecordProps($record)
+    {
+        return explode(' ', preg_replace('!\s+!', ' ', $record));
     }
 }

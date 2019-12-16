@@ -8,6 +8,8 @@ namespace Superrosko\Dig\ResourceRecords;
  */
 abstract class AbstractResourceRecord implements ResourceRecordsInterface, ResourceRecordsTypesInterface
 {
+    const MIN_PROPS_COUNT = 5; // Minimal properties count in parsed resource records array
+
     /**
      * @var string - domain name
      */
@@ -49,5 +51,26 @@ abstract class AbstractResourceRecord implements ResourceRecordsInterface, Resou
     public static function getServer(Record $record)
     {
         return $record->opt['target_ip'] ?? $record->data;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function resolveIp($recordProp, bool $resolve)
+    {
+        if ($resolve) {
+            $this->opt['target_ip'] = gethostbyname($recordProp);
+        }
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function checkRecordType($recordProp)
+    {
+        if ($recordProp == $this->convertType()) {
+            return true;
+        }
+        return false;
     }
 }

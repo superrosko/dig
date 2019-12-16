@@ -33,10 +33,28 @@ trait TraitResourceRecord
     /**
      * @inheritDoc
      */
+    public function parseRecord($record)
+    {
+        $recordProps = $this->getRecordProps($record);
+        if (count($recordProps) < self::MIN_PROPS_COUNT) {
+            return null;
+        }
+        if (!$this->checkRecordType($recordProps[self::PROP_TYPE] ?? '')) {
+            return null;
+        }
+
+        return $recordProps;
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function convertType()
     {
         $types = [
             DNS_NS => 'NS',
+            DNS_A => 'A',
+            DNS_CNAME => 'CNAME',
             DNS_TXT => 'TXT',
         ];
 
