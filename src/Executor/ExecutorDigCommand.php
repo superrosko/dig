@@ -2,6 +2,7 @@
 
 namespace Superrosko\Dig\Executor;
 
+use \Exception;
 use Superrosko\Dig\CacheEntities\CacheEntitiesInterface;
 use Superrosko\Dig\Exception\DigException;
 use Superrosko\Dig\ResourceRecords\ResourceRecordDigCommand as ResourceRecord;
@@ -12,6 +13,21 @@ use Superrosko\Dig\ResourceRecords\ResourceRecordDigCommand as ResourceRecord;
  */
 class ExecutorDigCommand extends AbstractExecutor
 {
+    /**
+     * ExecutorDigCommand constructor.
+     * @throws Exception
+     */
+    public function __construct()
+    {
+        if (!function_exists('exec')) {
+            throw new Exception('Function exec not exists');
+        }
+
+        $disabled = explode(',', ini_get('disable_functions'));
+        if (in_array('exec', $disabled)) {
+            throw new Exception('Function exec disabled in php.ini');
+        }
+    }
 
     /**
      * @inheritDoc
