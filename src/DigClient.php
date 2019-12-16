@@ -2,7 +2,6 @@
 
 namespace Superrosko\Dig;
 
-use \ReflectionClass;
 use \ReflectionException;
 use Superrosko\Dig\Executor\ExecutorInterface;
 
@@ -28,7 +27,9 @@ class DigClient
     public static function getExecutor($type)
     {
         $executor = 'Superrosko\Dig\Executor\ExecutorDig' . ucfirst($type);
-        new ReflectionClass($executor);
+        if(!class_exists($executor)) {
+            throw new ReflectionException('Class ' . $executor . 'does not exist');
+        }
 
         return new $executor;
     }

@@ -2,7 +2,7 @@
 
 namespace Superrosko\Dig\ResourceRecords;
 
-use \ReflectionClass;
+use \ReflectionException;
 
 /**
  * Trait TraitResourceRecord
@@ -17,12 +17,14 @@ trait TraitResourceRecord
     {
         $recordsArray = [];
         $method = 'get' . $this->convertType();
-        if ((new ReflectionClass(self::class))->hasMethod($method)) {
+        if (method_exists(self::class, $method)) {
             foreach ($response as $record) {
                 if ($recordProps = $this->$method($record, $resolve)) {
                     $recordsArray[] = $recordProps;
                 }
             }
+        } else {
+            throw new ReflectionException('Method ' . $method . ' does not exist');
         }
 
         return $recordsArray;
