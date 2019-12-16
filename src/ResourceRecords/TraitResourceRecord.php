@@ -59,6 +59,6 @@ trait TraitResourceRecord
             DNS_TXT => 'TXT',
         ];
 
-        return $types[($this->type)] ?? null;
+        return $types[$this->type] ?? null;
     }
 }

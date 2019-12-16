@@ -29,8 +29,9 @@ class ResourceRecordDigCommand extends AbstractResourceRecord
         $type = $this->convertType();
         $name = idn_to_ascii($this->name) ?: $this->name;
         $opt = implode(' ', $this->opt) ?: '+noall +answer +authority +additional';
-
-        return escapeshellcmd('dig ' . $type . ' ' . $opt . ' ' . $name . ' @' . $this->server);
+        $server = !empty($this->server) ? '@' . $this->server : '';
+        
+        return escapeshellcmd('dig ' . $type . ' ' . $opt . ' ' . $name . ' ' . $server);
     }
 
     /**
