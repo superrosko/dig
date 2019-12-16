@@ -54,6 +54,7 @@ trait TraitResourceRecord
         $types = [
             DNS_NS => 'NS',
             DNS_A => 'A',
+            DNS_AAAA => 'AAAA',
             DNS_CNAME => 'CNAME',
             DNS_TXT => 'TXT',
         ];

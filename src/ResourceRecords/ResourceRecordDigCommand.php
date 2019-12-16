@@ -48,6 +48,14 @@ class ResourceRecordDigCommand extends AbstractResourceRecord
     {
         return $this->getCommon($record, $resolve);
     }
+    
+    /**
+     * @inheritDoc
+     */
+    public function getAAAA($record, bool $resolve = false)
+    {
+        return $this->getCommon($record, $resolve);
+    }
 
     /**
      * @inheritDoc

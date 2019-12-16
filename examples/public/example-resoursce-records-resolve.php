@@ -21,19 +21,23 @@ try {
     $server = $executor::getRandomRecord($servers);
     echo 'NS server: ' . PHP_EOL;
     var_dump($server);
-    
+
     $records = $executor->getRecords($name, DNS_A, null, [], false);
     echo 'Records A: ' . PHP_EOL;
     var_dump($records);
-    
+
+    $records = $executor->getRecords($name, DNS_AAAA, null, [], false);
+    echo 'Records AAAA: ' . PHP_EOL;
+    var_dump($records);
+
     $records = $executor->getRecords($name, DNS_TXT, null, [], false);
     echo 'Records TXT: ' . PHP_EOL;
     var_dump($records);
-    
+
     $records = $executor->getRecords($name, DNS_CNAME, null, [], false);
     echo 'Records CNAME: ' . PHP_EOL;
     var_dump($records);
-    
+
 } catch (Exception $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -51,6 +55,10 @@ try {
     echo 'Records A: ' . PHP_EOL;
     var_dump($records);
 
+    $records = $executor->getRecords($name, DNS_AAAA, null, [], false);
+    echo 'Records AAAA: ' . PHP_EOL;
+    var_dump($records);
+
     $records = $executor->getRecords($name, DNS_TXT, null, [], false);
     echo 'Records TXT: ' . PHP_EOL;
     var_dump($records);
@@ -58,7 +66,7 @@ try {
     $records = $executor->getRecords($name, DNS_CNAME, null, [], false);
     echo 'Records CNAME: ' . PHP_EOL;
     var_dump($records);
-    
+
 } catch (Exception $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }

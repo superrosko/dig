@@ -45,6 +45,15 @@ class ResourceRecordDigGetDnsRecord extends AbstractResourceRecord
         $this->dataKey = 'ip';
         return $this->getCommon($record, $resolve);
     }
+    
+    /**
+     * @inheritDoc
+     */
+    public function getAAAA($record, bool $resolve = false)
+    {
+        $this->dataKey = 'ipv6';
+        return $this->getCommon($record, $resolve);
+    }
 
     /**
      * @inheritDoc
