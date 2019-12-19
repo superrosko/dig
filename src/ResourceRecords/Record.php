@@ -39,6 +39,17 @@ final class Record
     public $opt;
 
     /**
+     * @var array 
+     */
+    public static $types = [
+        DNS_NS => 'NS',
+        DNS_A => 'A',
+        DNS_AAAA => 'AAAA',
+        DNS_CNAME => 'CNAME',
+        DNS_TXT => 'TXT',
+    ];
+
+    /**
      * Record constructor.
      * @param $host
      * @param $class

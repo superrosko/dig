@@ -51,14 +51,6 @@ trait TraitResourceRecord
      */
     public function convertType()
     {
-        $types = [
-            DNS_NS => 'NS',
-            DNS_A => 'A',
-            DNS_AAAA => 'AAAA',
-            DNS_CNAME => 'CNAME',
-            DNS_TXT => 'TXT',
-        ];
-
-        return $types[$this->type] ?? null;
+        return Record::$types[$this->type] ?? null;
     }
 }
