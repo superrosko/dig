@@ -15,7 +15,7 @@ class CacheRedis extends AbstractCacheEntities
     /**
      * @var Redis $redis
      */
-    private static $redis = null;
+    protected static $redis = null;
 
     /**
      * @inheritDoc
