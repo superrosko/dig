@@ -62,7 +62,7 @@ class CacheRedis extends AbstractCacheEntities
      *
      * @param Redis $redis
      */
-    public function setRedis(Redis $redis)
+    public function setRedis($redis)
     {
         self::$redis = $redis;
     }
