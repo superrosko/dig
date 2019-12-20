@@ -8,6 +8,12 @@ namespace Superrosko\Dig\ResourceRecords;
  */
 final class Record
 {
+    const DNS_STR_NS = 'NS';
+    const DNS_STR_A = 'A';
+    const DNS_STR_AAAA = 'AAAA';
+    const DNS_STR_CNAME = 'CNAME';
+    const DNS_STR_TXT = 'TXT';
+    
     /**
      * @var string hostname
      */
@@ -42,11 +48,11 @@ final class Record
      * @var array 
      */
     public static $types = [
-        DNS_NS => 'NS',
-        DNS_A => 'A',
-        DNS_AAAA => 'AAAA',
-        DNS_CNAME => 'CNAME',
-        DNS_TXT => 'TXT',
+        DNS_NS => self::DNS_STR_NS,
+        DNS_A => self::DNS_STR_A,
+        DNS_AAAA => self::DNS_STR_AAAA,
+        DNS_CNAME => self::DNS_STR_CNAME,
+        DNS_TXT => self::DNS_STR_TXT,
     ];
 
     /**
