@@ -20,6 +20,6 @@ class DigFailGetRecordsException extends DigException
      */
     public static function create(string $message = '', $code = 0, Throwable $previous = null)
     {
-        return new static('Fail when try get records (' . $message . ')', $code, $previous);
+        return new static($message, $code, $previous);
     }
 }
