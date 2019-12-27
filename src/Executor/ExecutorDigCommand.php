@@ -50,7 +50,8 @@ class ExecutorDigCommand extends AbstractExecutor
         exec($request, $output, $code);
 
         if ($code > 0) {
-            throw DigException::failGetRecords();
+            $message = 'code: (' . $code . ') request: (' . $request . ') output: ' . implode('|', $output);
+            throw DigException::failGetRecords($message);
         } else {
             return $output;
         }

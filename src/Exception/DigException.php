@@ -36,11 +36,12 @@ class DigException extends Exception
     /**
      * Fail when try get records.
      *
+     * @param string $message
      * @param Throwable|null $previous
      * @return static
      */
-    public static function failGetRecords(Throwable $previous = null)
+    public static function failGetRecords(string $message = '', Throwable $previous = null)
     {
-        return new static('Fail when try get records', 3, $previous);
+        return new static('Fail when try get records (' . $message . ')', 3, $previous);
     }
 }
