@@ -3,7 +3,7 @@
 namespace Superrosko\Dig\Executor;
 
 use Superrosko\Dig\CacheEntities\CacheEntitiesInterface;
-use Superrosko\Dig\Exception\DigException;
+use Superrosko\Dig\Exception\DigFailGetRecordsException;
 use Superrosko\Dig\ResourceRecords\ResourceRecordDigGetDnsRecord as ResourceRecord;
 
 /**
@@ -32,7 +32,7 @@ class ExecutorDigGetDnsRecord extends AbstractExecutor implements ExecutorInterf
         $output = @dns_get_record($request['name'], $request['type'], $authns, $addtl, $request['raw']);
 
         if ($output === false) {
-            throw DigException::failGetRecords();
+            throw DigFailGetRecordsException::create();
         } else {
             return $output;
         }

@@ -4,7 +4,7 @@ namespace Superrosko\Dig\Executor;
 
 use \Exception;
 use Superrosko\Dig\CacheEntities\CacheEntitiesInterface;
-use Superrosko\Dig\Exception\DigException;
+use Superrosko\Dig\Exception\DigFailGetRecordsException;
 use Superrosko\Dig\ResourceRecords\ResourceRecordDigCommand as ResourceRecord;
 
 /**
@@ -51,7 +51,7 @@ class ExecutorDigCommand extends AbstractExecutor
 
         if ($code > 0) {
             $message = 'code: (' . $code . ') request: (' . $request . ') output: ' . implode('|', $output);
-            throw DigException::failGetRecords($message);
+            throw DigFailGetRecordsException::create($message);
         } else {
             return $output;
         }
