@@ -5,7 +5,7 @@ namespace Superrosko\Dig\Exception;
 use Throwable;
 
 /**
- * Class DigFailGetRecords
+ * Class DigFailGetRecordsException
  * @package Superrosko\Dig\Exception
  */
 class DigFailGetRecordsException extends DigException
