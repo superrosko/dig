@@ -30,8 +30,8 @@ class ResourceRecordDigCommand extends AbstractResourceRecord
         $name = idn_to_ascii($this->name) ?: $this->name;
         $opt = implode(' ', $this->opt) ?: '+noall +answer +authority +additional';
         $server = !empty($this->server) ? '@' . $this->server : '';
-        
-        return escapeshellcmd('dig ' . $type . ' ' . $opt . ' ' . $name . ' ' . $server);
+
+        return escapeshellcmd('dig ' . $type . ' ' . $opt . ' ' . $name . ' ' . $server) . ' 2>&1';
     }
 
     /**
@@ -49,7 +49,7 @@ class ResourceRecordDigCommand extends AbstractResourceRecord
     {
         return $this->getCommon($record, $resolve);
     }
-    
+
     /**
      * @inheritDoc
      */
