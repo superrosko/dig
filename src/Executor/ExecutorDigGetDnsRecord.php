@@ -29,12 +29,12 @@ class ExecutorDigGetDnsRecord extends AbstractExecutor implements ExecutorInterf
      */
     public function execute($request)
     {
-        $output = @dns_get_record($request['name'], $request['type'], $authns, $addtl, $request['raw']);
+        $response = @dns_get_record($request['name'], $request['type'], $authns, $addtl, $request['raw']);
 
-        if ($output === false) {
-            throw DigFailGetRecordsException::create();
+        if ($response === false) {
+            throw new DigFailGetRecordsException($request, $response);
         } else {
-            return $output;
+            return $response;
         }
     }
 

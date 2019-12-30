@@ -47,13 +47,12 @@ class ExecutorDigCommand extends AbstractExecutor
      */
     public function execute($request)
     {
-        exec($request, $output, $code);
+        exec($request, $response, $code);
 
         if ($code > 0) {
-            $message = 'request: (' . $request . ') output: ' . implode('|', $output);
-            throw DigFailGetRecordsException::create($message, $code);
+            throw new DigFailGetRecordsException($request, $response, $code);
         } else {
-            return $output;
+            return $response;
         }
     }
 

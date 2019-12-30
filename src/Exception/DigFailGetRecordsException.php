@@ -10,16 +10,31 @@ use Throwable;
  */
 class DigFailGetRecordsException extends DigException
 {
+
+    private $request;
+    private $response;
+
     /**
-     * Fail when try get records.
-     *
-     * @param string $message
+     * DigFailGetRecordsException constructor.
+     * @param $request
+     * @param $response
      * @param int $code
      * @param Throwable|null $previous
-     * @return static
      */
-    public static function create(string $message = '', $code = 0, Throwable $previous = null)
+    public function __construct($request, $response, $code = 0, Throwable $previous = null)
     {
-        return new static($message, $code, $previous);
+        $this->request = $request;
+        $this->response = $response;
+        parent::__construct('Fail when try get records', $code, $previous);
+    }
+
+    public function getRequest()
+    {
+        return $this->request;
+    }
+
+    public function getResponse()
+    {
+        return $this->response;
     }
 }

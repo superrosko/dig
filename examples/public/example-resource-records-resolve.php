@@ -19,26 +19,28 @@ $time = microtime(true);
 try {
     $executor = DigClient::getExecutor(DigClient::EXECUTOR_COMMAND);
     $servers = $executor->getRootServers($name, null, [], true);
-    $server = AbstractResourceRecord::getServer(AbstractExecutor::getRandomResolvedRecord($servers));
-    echo 'NS server: ' . PHP_EOL;
-    var_dump($server);
+    $ns = AbstractExecutor::getRandomResolvedRecord($servers);
+    if (!is_null($ns)) {
+        $server = AbstractResourceRecord::getServer($ns);
+        echo 'NS server: ' . PHP_EOL;
+        var_dump($server);
 
-    $records = $executor->getRecords($name, DNS_A, $server, [], false);
-    echo 'Records A: ' . PHP_EOL;
-    var_dump($records);
+        $records = $executor->getRecords($name, DNS_A, $server, [], false);
+        echo 'Records A: ' . PHP_EOL;
+        var_dump($records);
 
-    $records = $executor->getRecords($name, DNS_AAAA, $server, [], false);
-    echo 'Records AAAA: ' . PHP_EOL;
-    var_dump($records);
+        $records = $executor->getRecords($name, DNS_AAAA, $server, [], false);
+        echo 'Records AAAA: ' . PHP_EOL;
+        var_dump($records);
 
-    $records = $executor->getRecords($name, DNS_TXT, $server, [], false);
-    echo 'Records TXT: ' . PHP_EOL;
-    var_dump($records);
+        $records = $executor->getRecords($name, DNS_TXT, $server, [], false);
+        echo 'Records TXT: ' . PHP_EOL;
+        var_dump($records);
 
-    $records = $executor->getRecords($name, DNS_CNAME, $server, [], false);
-    echo 'Records CNAME: ' . PHP_EOL;
-    var_dump($records);
-
+        $records = $executor->getRecords($name, DNS_CNAME, $server, [], false);
+        echo 'Records CNAME: ' . PHP_EOL;
+        var_dump($records);
+    }
 } catch (Exception $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -49,26 +51,28 @@ $time = microtime(true);
 try {
     $executor = DigClient::getExecutor(DigClient::EXECUTOR_GET_DNS_RECORD);
     $servers = $executor->getRootServers($name, null, [], true);
-    $server = AbstractResourceRecord::getServer(AbstractExecutor::getRandomResolvedRecord($servers));
-    echo 'NS server: ' . PHP_EOL;
-    var_dump($server);
+    $ns = AbstractExecutor::getRandomResolvedRecord($servers);
+    if (!is_null($ns)) {
+        $server = AbstractResourceRecord::getServer($ns);
+        echo 'NS server: ' . PHP_EOL;
+        var_dump($server);
 
-    $records = $executor->getRecords($name, DNS_A, null, [], false);
-    echo 'Records A: ' . PHP_EOL;
-    var_dump($records);
+        $records = $executor->getRecords($name, DNS_A, null, [], false);
+        echo 'Records A: ' . PHP_EOL;
+        var_dump($records);
 
-    $records = $executor->getRecords($name, DNS_AAAA, null, [], false);
-    echo 'Records AAAA: ' . PHP_EOL;
-    var_dump($records);
+        $records = $executor->getRecords($name, DNS_AAAA, null, [], false);
+        echo 'Records AAAA: ' . PHP_EOL;
+        var_dump($records);
 
-    $records = $executor->getRecords($name, DNS_TXT, null, [], false);
-    echo 'Records TXT: ' . PHP_EOL;
-    var_dump($records);
+        $records = $executor->getRecords($name, DNS_TXT, null, [], false);
+        echo 'Records TXT: ' . PHP_EOL;
+        var_dump($records);
 
-    $records = $executor->getRecords($name, DNS_CNAME, null, [], false);
-    echo 'Records CNAME: ' . PHP_EOL;
-    var_dump($records);
-
+        $records = $executor->getRecords($name, DNS_CNAME, null, [], false);
+        echo 'Records CNAME: ' . PHP_EOL;
+        var_dump($records);
+    }
 } catch (Exception $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
