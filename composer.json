@@ -7,11 +7,9 @@
   "require": {
     "php": ">=7.1.0",
     "ext-json": "*",
-    "ext-intl": "*",
     "ext-redis": "*"
   },
   "require-dev": {
-
   },
   "keywords": [
     "dns",

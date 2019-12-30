@@ -22,7 +22,7 @@ class ResourceRecordDigGetDnsRecord extends AbstractResourceRecord
     public function getRequest()
     {
         return [
-            'name' => idn_to_ascii($this->name) ?: $this->name,
+            'name' => $this->name,
             'type' => $this->type,
             'raw' => $this->opt['raw'] ?? false,
         ];

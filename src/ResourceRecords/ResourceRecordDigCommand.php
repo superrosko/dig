@@ -27,7 +27,7 @@ class ResourceRecordDigCommand extends AbstractResourceRecord
     public function getRequest()
     {
         $type = $this->convertType();
-        $name = idn_to_ascii($this->name) ?: $this->name;
+        $name = $this->name;
         $opt = implode(' ', $this->opt) ?: '+noall +answer +authority +additional';
         $server = !empty($this->server) ? '@' . $this->server : '';
 
