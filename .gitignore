@@ -2,4 +2,4 @@
 /vendor
 /composer.lock
 /examples/vendor
-/examples/omposer.lock
+/examples/composer.lock
