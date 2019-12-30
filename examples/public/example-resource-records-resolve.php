@@ -1,7 +1,9 @@
 <?php
 
 use Superrosko\Dig\DigClient;
+use Superrosko\Dig\Executor\AbstractExecutor;
 use Superrosko\Dig\Executor\ExecutorInterface;
+use Superrosko\Dig\ResourceRecords\AbstractResourceRecord;
 use Superrosko\Dig\ResourceRecords\ResourceRecordsInterface;
 
 include __DIR__ . '/../vendor/autoload.php';
@@ -13,28 +15,27 @@ $name = 'rdevelab.ru';
  * @var ResourceRecordsInterface[] $records
  */
 
-
 $time = microtime(true);
 try {
     $executor = DigClient::getExecutor(DigClient::EXECUTOR_COMMAND);
     $servers = $executor->getRootServers($name, null, [], true);
-    $server = $executor::getRandomRecord($servers);
+    $server = AbstractResourceRecord::getServer(AbstractExecutor::getRandomResolvedRecord($servers));
     echo 'NS server: ' . PHP_EOL;
     var_dump($server);
 
-    $records = $executor->getRecords($name, DNS_A, null, [], false);
+    $records = $executor->getRecords($name, DNS_A, $server, [], false);
     echo 'Records A: ' . PHP_EOL;
     var_dump($records);
 
-    $records = $executor->getRecords($name, DNS_AAAA, null, [], false);
+    $records = $executor->getRecords($name, DNS_AAAA, $server, [], false);
     echo 'Records AAAA: ' . PHP_EOL;
     var_dump($records);
 
-    $records = $executor->getRecords($name, DNS_TXT, null, [], false);
+    $records = $executor->getRecords($name, DNS_TXT, $server, [], false);
     echo 'Records TXT: ' . PHP_EOL;
     var_dump($records);
 
-    $records = $executor->getRecords($name, DNS_CNAME, null, [], false);
+    $records = $executor->getRecords($name, DNS_CNAME, $server, [], false);
     echo 'Records CNAME: ' . PHP_EOL;
     var_dump($records);
 
@@ -48,7 +49,8 @@ $time = microtime(true);
 try {
     $executor = DigClient::getExecutor(DigClient::EXECUTOR_GET_DNS_RECORD);
     $servers = $executor->getRootServers($name, null, [], true);
-    $server = $executor::getRandomRecord($servers);
+    $server = AbstractResourceRecord::getServer(AbstractExecutor::getRandomResolvedRecord($servers));
+    echo 'NS server: ' . PHP_EOL;
     var_dump($server);
 
     $records = $executor->getRecords($name, DNS_A, null, [], false);
