@@ -15,7 +15,7 @@ class ResourceRecordDigGetDnsRecord extends AbstractResourceRecord
      * @var string - key with main data value in resource record array
      */
     private $dataKey = '';
-    
+
     /**
      * @inheritDoc
      */
@@ -45,7 +45,7 @@ class ResourceRecordDigGetDnsRecord extends AbstractResourceRecord
         $this->dataKey = 'ip';
         return $this->getCommon($record, $resolve);
     }
-    
+
     /**
      * @inheritDoc
      */
