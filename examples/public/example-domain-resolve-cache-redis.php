@@ -1,6 +1,6 @@
 <?php
 
-use Superrosko\Dig\CacheEntities\CacheRedis;
+use DigExamples\CacheEntities\CacheRedis;
 use Superrosko\Dig\DigClient;
 use Superrosko\Dig\Executor\ExecutorInterface;
 use Superrosko\Dig\ResourceRecords\ResourceRecordsInterface;

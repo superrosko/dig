@@ -1,9 +1,10 @@
 <?php
 
-namespace Superrosko\Dig\CacheEntities;
+namespace DigExamples\CacheEntities;
 
 use \Exception;
 use \Redis;
+use Superrosko\Dig\CacheEntities\AbstractCacheEntities;
 use Superrosko\Dig\ResourceRecords\Record;
 
 /**

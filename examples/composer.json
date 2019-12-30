@@ -1,6 +1,7 @@
 {
   "require": {
-    "ext-intl": "*"
+    "ext-intl": "*",
+    "ext-redis": "*"
   },
   "require-dev": {
   },

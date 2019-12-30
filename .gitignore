@@ -1,4 +1,5 @@
+.idea
 /vendor
 /composer.lock
-.idea
 /examples/vendor
+/examples/omposer.lock
