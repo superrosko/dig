@@ -52,12 +52,36 @@ abstract class AbstractExecutor implements ExecutorInterface
      */
     public static function getRandomRecord(array $records)
     {
+        /**
+         * @var Record $record
+         */
         $record = null;
         if (count($records)) {
-            /**
-             * @var Record $record
-             */
             $record = $records[array_rand($records)];
+        }
+        return $record;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public static function getRandomResolvedRecord(array $records)
+    {
+        /**
+         * @var Record $record
+         */
+        $recordsResolved = [];
+        foreach ($records as $record) {
+            if (isset($record->opt['target_ip'])) {
+                if (filter_var($record->opt['target_ip'], FILTER_VALIDATE_IP)) {
+                    $recordsResolved[] = $record;
+                }
+            }
+        }
+        if (count($recordsResolved)) {
+            $record = $recordsResolved[array_rand($recordsResolved)];
+        } else {
+            $record = null;
         }
         return $record;
     }

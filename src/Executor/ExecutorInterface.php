@@ -62,6 +62,12 @@ interface ExecutorInterface
     public static function getRandomRecord(array $records);
 
     /**
+     * @param array $records
+     * @return mixed|Record
+     */
+    public static function getRandomResolvedRecord(array $records);
+    
+    /**
      * Chunk domain name by zones
      *
      * @param string $name - domain name
