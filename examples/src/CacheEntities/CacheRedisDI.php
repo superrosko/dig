@@ -4,29 +4,34 @@ namespace DigExamples\CacheEntities;
 
 use \Exception;
 use \Redis;
-use Superrosko\Dig\CacheEntities\AbstractCacheEntities;
+use Superrosko\Dig\CacheEntities\CacheEntitiesInterface;
 use Superrosko\Dig\ResourceRecords\Record;
 
 /**
- * Class CacheRedis
+ * Class CacheRedisDI
  * @package DigExamples\CacheEntities
  */
-class CacheRedis extends AbstractCacheEntities
+class CacheRedisDI implements CacheEntitiesInterface
 {
     /**
      * @var Redis $redis
      */
-    protected static $redis = null;
+    protected $redis = null;
 
+    public function __construct(Redis $redis)
+    {
+        $this->redis = $redis;
+    }
+    
     /**
      * @inheritDoc
      */
     public function get(string $key)
     {
-        if (self::$redis instanceof Redis) {
-            if ($value = self::$redis->hGetAll($key)) {
+        if ($this->redis instanceof Redis) {
+            if ($value = $this->redis->hGetAll($key)) {
                 $records = [];
-                $ttl = self::$redis->ttl($key);
+                $ttl = $this->redis->ttl($key);
                 foreach ($value as $data => $target_ip) {
                     $records[] = new Record($key, '', $ttl, 'NS', $data, ['target_ip' => $target_ip]);
                 }
@@ -44,27 +49,17 @@ class CacheRedis extends AbstractCacheEntities
      */
     public function set(string $key, $value)
     {
-        if (self::$redis instanceof Redis) {
+        if ($this->redis instanceof Redis) {
             $ttl = [];
             $data = [];
             foreach ($value as $record) {
                 $ttl[] = $record->ttl;
                 $data[$record->data] = $record->opt['target_ip'];
             }
-            self::$redis->hMSet($key, $data);
-            self::$redis->expire($key, min($ttl));
+            $this->redis->hMSet($key, $data);
+            $this->redis->expire($key, min($ttl));
         } else {
             throw new Exception('Redis object not found');
         }
-    }
-
-    /**
-     * Set Redis object
-     *
-     * @param Redis $redis
-     */
-    public function setRedis($redis)
-    {
-        self::$redis = $redis;
     }
 }

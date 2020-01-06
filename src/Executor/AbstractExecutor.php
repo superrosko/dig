@@ -28,6 +28,15 @@ abstract class AbstractExecutor implements ExecutorInterface
     protected $resolver = '8.8.8.8';
 
     /**
+     * AbstractExecutor constructor.
+     * @param CacheEntitiesInterface|null $cache
+     */
+    public function __construct(CacheEntitiesInterface $cache  = null)
+    {
+        $this->cache = $cache;
+    }
+
+    /**
      * Executor can't  use cache storage by default
      *
      * @inheritDoc

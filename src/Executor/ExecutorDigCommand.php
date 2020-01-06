@@ -15,9 +15,10 @@ class ExecutorDigCommand extends AbstractExecutor
 {
     /**
      * ExecutorDigCommand constructor.
+     * @param CacheEntitiesInterface|null $cache
      * @throws Exception
      */
-    public function __construct()
+    public function __construct(CacheEntitiesInterface $cache = null)
     {
         if (!function_exists('exec')) {
             throw new Exception('Function exec not exists');
@@ -27,6 +28,8 @@ class ExecutorDigCommand extends AbstractExecutor
         if (in_array('exec', $disabled)) {
             throw new Exception('Function exec disabled in php.ini');
         }
+        
+        parent::__construct($cache);
     }
 
     /**
