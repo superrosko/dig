@@ -8,11 +8,10 @@ interface ResourceRecordsInterface
 {
     /**
      * Return resolved server IP or name if exists
-     *
-     * @param Record $record
-     * @return mixed
+     * @param Record|null $record
+     * @return mixed|null
      */
-    public static function getServer(Record $record);
+    public static function getServer(Record $record = null);
 
     /**
      * @param $recordProp

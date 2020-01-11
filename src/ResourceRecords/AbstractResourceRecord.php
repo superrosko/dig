@@ -48,9 +48,9 @@ abstract class AbstractResourceRecord implements ResourceRecordsInterface, Resou
     /**
      * @inheritDoc
      */
-    public static function getServer(Record $record)
+    public static function getServer(Record $record = null)
     {
-        return $record->opt['target_ip'] ?? $record->data;
+        return $record->opt['target_ip'] ?? ($record->data ?? null);
     }
 
     /**
