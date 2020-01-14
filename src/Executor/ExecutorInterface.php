@@ -6,6 +6,7 @@ use \Exception;
 use \ReflectionException;
 use Superrosko\Dig\CacheEntities\CacheEntitiesInterface;
 use Superrosko\Dig\Exception\DigException;
+use Superrosko\Dig\Exception\DigFailGetRecordsException;
 use Superrosko\Dig\ResourceRecords\Record;
 
 /**
@@ -23,7 +24,7 @@ interface ExecutorInterface
      * @param array $opt - options
      * @param bool $resolve - resolve or not IP for response name records
      * @return array - array with resource records from response
-     * @throws DigException
+     * @throws DigFailGetRecordsException
      * @throws ReflectionException
      */
     public function getRecords(string $name, int $type, string $server = null, array $opt = [], bool $resolve = false): array;
@@ -33,7 +34,7 @@ interface ExecutorInterface
      *
      * @param $request - request to DNS servers
      * @return mixed - response from DNS servers
-     * @throws DigException
+     * @throws DigFailGetRecordsException
      */
     public function execute($request);
 
