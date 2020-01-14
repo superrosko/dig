@@ -84,7 +84,7 @@ interface ExecutorInterface
      * @param array $opt - additional options
      * @param bool $resolve - resolve or not IP for response name records
      * @return array - array with resource records
-     * @throws DigException
+     * @throws DigFailGetRecordsException
      * @throws Exception
      */
     public function getRootServers(string $name, string $server = null, array $opt = [], bool $resolve = false): array;
