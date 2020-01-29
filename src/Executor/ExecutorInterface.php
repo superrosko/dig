@@ -23,7 +23,7 @@ interface ExecutorInterface
      * @param string|null $server - resolve server
      * @param array $opt - options
      * @param bool $resolve - resolve or not IP for response name records
-     * @return array - array with resource records from response
+     * @return Record[] - array with resource records from response
      * @throws DigFailGetRecordsException
      * @throws ReflectionException
      */

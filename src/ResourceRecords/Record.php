@@ -13,6 +13,7 @@ final class Record
     const DNS_STR_AAAA = 'AAAA';
     const DNS_STR_CNAME = 'CNAME';
     const DNS_STR_TXT = 'TXT';
+    const DNS_STR_PTR = 'PTR';
     
     /**
      * @var string hostname
@@ -53,6 +54,7 @@ final class Record
         DNS_AAAA => self::DNS_STR_AAAA,
         DNS_CNAME => self::DNS_STR_CNAME,
         DNS_TXT => self::DNS_STR_TXT,
+        DNS_PTR => self::DNS_STR_PTR,
     ];
 
     /**

@@ -28,10 +28,11 @@ class ResourceRecordDigCommand extends AbstractResourceRecord
     {
         $type = $this->convertType();
         $name = $this->name;
-        $opt = implode(' ', $this->opt) ?: '+noall +answer +authority +additional';
+        $qOpt = implode(' ', $this->opt['q-opt'] ?? []) ?: '';
+        $dOpt = implode(' ', $this->opt['d-opt'] ?? []) ?: '+noall +answer +authority +additional';
         $server = !empty($this->server) ? '@' . $this->server : '';
 
-        return escapeshellcmd('dig ' . $type . ' ' . $opt . ' ' . $name . ' ' . $server) . ' 2>&1';
+        return escapeshellcmd('dig ' . $type . ' ' . $qOpt . ' ' . $name . ' ' . $dOpt . ' ' . ' ' . $server) . ' 2>&1';
     }
 
     /**
@@ -70,6 +71,14 @@ class ResourceRecordDigCommand extends AbstractResourceRecord
      * @inheritDoc
      */
     public function getCNAME($record, bool $resolve = false)
+    {
+        return $this->getCommon($record, $resolve);
+    }
+    
+    /**
+     * @inheritDoc
+     */
+    public function getPTR($record, bool $resolve = false)
     {
         return $this->getCommon($record, $resolve);
     }
