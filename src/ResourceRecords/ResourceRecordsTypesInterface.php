@@ -25,7 +25,7 @@ interface ResourceRecordsTypesInterface
      * @return Record|null
      */
     public function getA($record, bool $resolve = false);
-    
+
     /**
      * Parse AAAA resource records response
      *
@@ -52,4 +52,13 @@ interface ResourceRecordsTypesInterface
      * @return Record|null
      */
     public function getCNAME($record, bool $resolve = false);
+    
+    /**
+     * Parse PTR resource records response
+     *
+     * @param $record
+     * @param bool $resolve
+     * @return Record|null
+     */
+    public function getPTR($record, bool $resolve = false);
 }

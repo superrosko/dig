@@ -74,6 +74,14 @@ class ResourceRecordDigGetDnsRecord extends AbstractResourceRecord
     }
 
     /**
+     * @inheritDoc
+     */
+    public function getPTR($record, bool $resolve = false)
+    {
+        return $this->getCommon($record, $resolve);
+    }
+
+    /**
      * @param $record
      * @param bool $resolve
      * @return Record|null
