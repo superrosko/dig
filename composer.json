@@ -3,7 +3,7 @@
   "description": "DNS resolver for PHP",
   "homepage": "https://github.com/superrosko/dig",
   "license": "MIT",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "require": {
     "php": ">=7.1.0"
   },
