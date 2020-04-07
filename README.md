@@ -37,8 +37,8 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 [link-github]: https://github.com/superrosko/dig
 [link-license]: LICENSE
 
-[ico-packagist]: https://img.shields.io/packagist/v/superrosko/dig.svg?style=flat-square
-[ico-github-size]: https://img.shields.io/github/languages/code-size/superrosko/dig.svg?style=flat-square
-[ico-github-top-language]: https://img.shields.io/github/languages/top/superrosko/dig.svg?style=flat-square
-[ico-packagist-php-version]: https://img.shields.io/packagist/php-v/superrosko/dig.svg?style=flat-square
-[ico-license]: https://img.shields.io/packagist/l/superrosko/dig.svg?style=flat-square
+[ico-packagist]: https://img.shields.io/packagist/v/superrosko/dig.svg?style=flat
+[ico-github-size]: https://img.shields.io/github/languages/code-size/superrosko/dig.svg?style=flat
+[ico-github-top-language]: https://img.shields.io/github/languages/top/superrosko/dig.svg?style=flat
+[ico-packagist-php-version]: https://img.shields.io/packagist/php-v/superrosko/dig.svg?style=flat
+[ico-license]: https://img.shields.io/packagist/l/superrosko/dig.svg?style=flat
