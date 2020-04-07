@@ -29,7 +29,7 @@ Domain names MUST be converted to punycode with idn_to_ascii!
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
+The MIT License (MIT). Please see [License File][link-license] for more information.
 
 [link-author]: https://github.com/superrosko
 [link-contributors]: https://github.com/superrosko/dig/contributors
