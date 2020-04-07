@@ -1,10 +1,10 @@
 # dig
 
-![Packagist Version](https://img.shields.io/packagist/v/superrosko/dig)
-![Packagist](https://img.shields.io/packagist/l/superrosko/dig)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/superrosko/dig)
-![PHP from Packagist](https://img.shields.io/packagist/php-v/superrosko/dig)
-![GitHub top language](https://img.shields.io/github/languages/top/superrosko/dig)
+[![Packagist Version][ico-packagist]][link-packagist]
+[![Packagist][ico-license]][link-license]
+[![GitHub code size in bytes][ico-github-size]][link-github]
+[![PHP from Packagist][ico-packagist-php-version]][link-packagist]
+[![GitHub top language][ico-github-top-language]][link-github]
 
 ## Introduction
 
@@ -33,3 +33,12 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 
 [link-author]: https://github.com/superrosko
 [link-contributors]: https://github.com/superrosko/dig/contributors
+[link-packagist]: https://packagist.org/packages/superrosko/dig
+[link-github]: https://github.com/superrosko/dig
+[link-license]: LICENSE
+
+[ico-packagist]: https://img.shields.io/packagist/v/superrosko/dig.svg?style=flat-square
+[ico-github-size]: https://img.shields.io/github/languages/code-size/superrosko/dig.svg?style=flat-square
+[ico-github-top-language]: https://img.shields.io/github/languages/top/superrosko/dig.svg?style=flat-square
+[ico-packagist-php-version]: https://img.shields.io/packagist/php-v/superrosko/dig.svg?style=flat-square
+[ico-license]: https://img.shields.io/packagist/l/superrosko/dig.svg?style=flat-square
