@@ -1,0 +1,6 @@
+# shellcheck disable=SC2034
+DIR=$( cd "$(dirname "$0")" && pwd )
+
+# APP Configuration
+APP_NAME="dig"
+APP_ENV="dev"

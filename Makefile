@@ -1,0 +1,12 @@
+compose_restart:
+	./docker/scripts/compose_restart.sh
+deps_install:
+	./docker/scripts/deps_install.sh
+deps_update:
+	./docker/scripts/deps_update.sh
+php_exec:
+	./docker/scripts/php_exec.sh
+bash_exec:
+	./docker/scripts/bash_exec.sh
+initial:
+	./docker/scripts/initial.sh
