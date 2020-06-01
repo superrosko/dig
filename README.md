@@ -23,6 +23,18 @@ Install the latest version with
 $ composer require superrosko/dig
 ```
 
+### Docker
+
+#### Git clone
+```bash
+git clone git@github.com:superrosko/dig.git .
+```
+
+#### Run initialization
+```bash
+make initial
+```
+
 ## Usage
 
 Domain names MUST be converted to punycode with idn_to_ascii!
