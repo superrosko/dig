@@ -39,6 +39,33 @@ make initial
 
 Domain names MUST be converted to punycode with idn_to_ascii!
 
+### Docker
+
+Restart docker compose:
+```bash
+make compose_restart
+```
+Install dependencies:
+```bash
+make deps_install
+```
+Update dependencies:
+```bash
+make deps_update
+```
+App php exec: 
+```bash
+make php_exec COMMAND="artisan"
+```
+App bash exec: 
+```bash
+make bash_exec
+```
+App initialization: 
+```bash
+make initial
+```
+
 ## Credits
 
 - [Dmitriy Bespalov][link-author]
