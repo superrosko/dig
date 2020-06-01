@@ -10,6 +10,11 @@
 
 DNS resolver for PHP.
 
+## Requirements
+
+- PHP >= 7.1.0
+- dnsutils
+
 ## Installation
 
 Install the latest version with
