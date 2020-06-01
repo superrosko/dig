@@ -55,7 +55,7 @@ make deps_update
 ```
 App php exec: 
 ```bash
-make php_exec COMMAND="artisan"
+make php_exec COMMAND="-v"
 ```
 App bash exec: 
 ```bash
