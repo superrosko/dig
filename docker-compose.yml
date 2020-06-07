@@ -40,6 +40,27 @@ services:
     depends_on:
       - dig-php
 
+  #Redis Service
+  dig-redis:
+    image: redis:5.0
+    container_name: dig-redis
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "6379:6379"
+    environment:
+      SERVICE_TAGS: dev
+      SERVICE_NAME: dig-redis
+    volumes:
+      - redis-data:/data
+    networks:
+      - internal
+
+#Docker Volumes
+volumes:
+  redis-data:
+    driver: local
+
 #Docker Networks
 networks:
   internal:

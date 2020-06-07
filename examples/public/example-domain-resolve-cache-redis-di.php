@@ -1,5 +1,6 @@
 <?php
 
+use Dotenv\Dotenv;
 use DigExamples\CacheEntities\CacheRedis;
 use DigExamples\CacheEntities\CacheRedisDI;
 use Superrosko\Dig\Executor\ExecutorDigCommand;
@@ -10,9 +11,12 @@ include __DIR__ . '/../vendor/autoload.php';
 $name = 'rdevelab.ru';
 $type = DNS_NS;
 
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../..');
+$dotenv->load();
+
 $redis = new Redis();
-$redis->connect('127.0.0.1', 6379);
-$redis->select(6);
+$redis->connect($_ENV['REDIS_HOST'], $_ENV['REDIS_PORT']);
+$redis->select(1);
 
 /**
  * @var ExecutorInterface $executor
