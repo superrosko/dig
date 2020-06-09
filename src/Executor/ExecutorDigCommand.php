@@ -3,7 +3,7 @@
 namespace Superrosko\Dig\Executor;
 
 use \Exception;
-use Superrosko\Dig\CacheEntities\CacheEntitiesInterface;
+use Psr\SimpleCache\CacheInterface;
 use Superrosko\Dig\Exception\DigFailGetRecordsException;
 use Superrosko\Dig\ResourceRecords\ResourceRecordDigCommand as ResourceRecord;
 
@@ -15,10 +15,10 @@ class ExecutorDigCommand extends AbstractExecutor
 {
     /**
      * ExecutorDigCommand constructor.
-     * @param CacheEntitiesInterface|null $cache
+     * @param CacheInterface|null $cache
      * @throws Exception
      */
-    public function __construct(CacheEntitiesInterface $cache = null)
+    public function __construct(CacheInterface $cache = null)
     {
         if (!function_exists('exec')) {
             throw new Exception('Function exec not exists');
@@ -62,7 +62,7 @@ class ExecutorDigCommand extends AbstractExecutor
     /**
      * @inheritDoc
      */
-    public function setCache(CacheEntitiesInterface $cache = null)
+    public function setCache(CacheInterface $cache = null)
     {
         $this->cache = $cache;
     }

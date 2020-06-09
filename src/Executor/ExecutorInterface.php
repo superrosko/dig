@@ -3,8 +3,9 @@
 namespace Superrosko\Dig\Executor;
 
 use \Exception;
+use Psr\SimpleCache\CacheInterface;
+use Psr\SimpleCache\InvalidArgumentException;
 use \ReflectionException;
-use Superrosko\Dig\CacheEntities\CacheEntitiesInterface;
 use Superrosko\Dig\Exception\DigException;
 use Superrosko\Dig\Exception\DigFailGetRecordsException;
 use Superrosko\Dig\ResourceRecords\Record;
@@ -41,10 +42,10 @@ interface ExecutorInterface
     /**
      * Set up cache storage for dig responses
      *
-     * @param CacheEntitiesInterface|null $cache - object with cache storage
+     * @param CacheInterface|null $cache - object with cache storage
      * @throws DigException
      */
-    public function setCache(CacheEntitiesInterface $cache = null);
+    public function setCache(CacheInterface $cache = null);
 
     /**
      * Set up default resolver for dig
@@ -67,7 +68,7 @@ interface ExecutorInterface
      * @return mixed|Record
      */
     public static function getRandomResolvedRecord(array $records);
-    
+
     /**
      * Chunk domain name by zones
      *
@@ -84,8 +85,10 @@ interface ExecutorInterface
      * @param array $opt - additional options
      * @param bool $resolve - resolve or not IP for response name records
      * @return array - array with resource records
-     * @throws DigFailGetRecordsException
      * @throws Exception
+     * @throws InvalidArgumentException
+     * @throws ReflectionException
+     * @throws DigFailGetRecordsException
      */
     public function getRootServers(string $name, string $server = null, array $opt = [], bool $resolve = false): array;
 }

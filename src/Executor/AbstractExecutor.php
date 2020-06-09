@@ -2,7 +2,7 @@
 
 namespace Superrosko\Dig\Executor;
 
-use Superrosko\Dig\CacheEntities\CacheEntitiesInterface;
+use Psr\SimpleCache\CacheInterface;
 use Superrosko\Dig\Exception\DigException;
 use Superrosko\Dig\ResourceRecords\AbstractResourceRecord;
 use Superrosko\Dig\ResourceRecords\Record;
@@ -16,7 +16,7 @@ abstract class AbstractExecutor implements ExecutorInterface
     /**
      * Cache storage for dig responses
      *
-     * @var CacheEntitiesInterface $cache
+     * @var CacheInterface $cache
      */
     protected $cache = null;
 
@@ -29,9 +29,9 @@ abstract class AbstractExecutor implements ExecutorInterface
 
     /**
      * AbstractExecutor constructor.
-     * @param CacheEntitiesInterface|null $cache
+     * @param CacheInterface|null $cache
      */
-    public function __construct(CacheEntitiesInterface $cache  = null)
+    public function __construct(CacheInterface $cache  = null)
     {
         $this->cache = $cache;
     }
@@ -41,7 +41,7 @@ abstract class AbstractExecutor implements ExecutorInterface
      *
      * @inheritDoc
      */
-    public function setCache(CacheEntitiesInterface $cache = null)
+    public function setCache(CacheInterface $cache = null)
     {
         throw DigException::invalidCache();
     }
@@ -122,13 +122,13 @@ abstract class AbstractExecutor implements ExecutorInterface
         $count = count($chunkedDomain) - 1;
         for ($i = 0; $i < $count; $i++) {
             $records = null;
-            if ($this->cache instanceof CacheEntitiesInterface) {
+            if ($this->cache instanceof CacheInterface) {
                 $records = $this->cache->get($chunkedDomain[$i]);
             }
 
             if (is_null($records)) {
                 $records = $this->getRecords($chunkedDomain[$i], DNS_NS, $server, [], true);
-                if ($this->cache instanceof CacheEntitiesInterface) {
+                if ($this->cache instanceof CacheInterface) {
                     $this->cache->set($chunkedDomain[$i], $records);
                 }
             }

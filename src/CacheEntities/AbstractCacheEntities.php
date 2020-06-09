@@ -3,12 +3,13 @@
 namespace Superrosko\Dig\CacheEntities;
 
 use \Exception;
+use Psr\SimpleCache\CacheInterface;
 
 /**
  * Class AbstractCacheEntities
  * @package Superrosko\Dig\CacheEntities
  */
-abstract class AbstractCacheEntities implements CacheEntitiesInterface
+abstract class AbstractCacheEntities implements CacheInterface
 {
     /**
      * Array with cache instances

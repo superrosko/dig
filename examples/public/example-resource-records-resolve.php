@@ -1,6 +1,7 @@
 <?php
 
 use Superrosko\Dig\DigClient;
+use Psr\SimpleCache\InvalidArgumentException;
 use Superrosko\Dig\Executor\AbstractExecutor;
 use Superrosko\Dig\Executor\ExecutorInterface;
 use Superrosko\Dig\ResourceRecords\AbstractResourceRecord;
@@ -43,6 +44,8 @@ try {
 
 } catch (Exception $exception) {
     echo $exception->getMessage() . PHP_EOL;
+} catch (InvalidArgumentException $exception) {
+    echo $exception->getMessage() . PHP_EOL;
 }
 echo 'Time: ' . (microtime(true) - $time) . PHP_EOL;
 
@@ -72,8 +75,10 @@ try {
     $records = $executor->getRecords($name, DNS_CNAME, null, [], false);
     echo 'Records CNAME: ' . PHP_EOL;
     var_dump($records);
-    
+
 } catch (Exception $exception) {
+    echo $exception->getMessage() . PHP_EOL;
+} catch (InvalidArgumentException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 echo 'Time: ' . (microtime(true) - $time) . PHP_EOL;

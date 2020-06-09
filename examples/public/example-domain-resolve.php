@@ -1,6 +1,7 @@
 <?php
 
 use Superrosko\Dig\DigClient;
+use Psr\SimpleCache\InvalidArgumentException;
 use Superrosko\Dig\Executor\ExecutorInterface;
 use Superrosko\Dig\ResourceRecords\ResourceRecordsInterface;
 
@@ -22,6 +23,8 @@ try {
     var_dump($server);
 } catch (Exception $exception) {
     echo $exception->getMessage() . PHP_EOL;
+} catch (InvalidArgumentException $exception) {
+    echo $exception->getMessage() . PHP_EOL;
 }
 echo 'Time: ' . (microtime(true) - $time) . PHP_EOL;
 
@@ -32,6 +35,8 @@ try {
     $server = $executor::getRandomRecord($servers);
     var_dump($server);
 } catch (Exception $exception) {
+    echo $exception->getMessage() . PHP_EOL;
+} catch (InvalidArgumentException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 echo 'Time: ' . (microtime(true) - $time) . PHP_EOL;
