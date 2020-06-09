@@ -53,15 +53,15 @@ Update dependencies:
 ```bash
 make deps_update
 ```
-App php exec: 
+App php exec:
 ```bash
 make php_exec COMMAND="-v"
 ```
-App bash exec: 
+App bash exec:
 ```bash
 make bash_exec
 ```
-App initialization: 
+App initialization:
 ```bash
 make initial
 ```
@@ -79,7 +79,7 @@ The MIT License (MIT). Please see [License File][link-license] for more informat
 [link-contributors]: https://github.com/superrosko/dig/contributors
 [link-packagist]: https://packagist.org/packages/superrosko/dig
 [link-github]: https://github.com/superrosko/dig
-[link-license]: LICENSE
+[link-license]: LICENSE.md
 
 [ico-packagist]: https://img.shields.io/packagist/v/superrosko/dig.svg?style=flat
 [ico-github-size]: https://img.shields.io/github/languages/code-size/superrosko/dig.svg?style=flat
