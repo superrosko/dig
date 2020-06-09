@@ -12,7 +12,7 @@ DNS resolver for PHP.
 
 ## Requirements
 
-- PHP >= 7.1.0
+- PHP >= 7.2.5
 - dnsutils
 
 ## Installation
