@@ -7,8 +7,6 @@ nbproject
 # composer vendor dir
 /vendor
 /examples/vendor
-/examples/composer.lock
-composer.lock
 
 # composer itself is not needed
 composer.phar
