@@ -21,16 +21,17 @@ class DigClient
      * Create Dig executor object
      *
      * @param $type
+     * @param null $cache
      * @return ExecutorInterface
      * @throws ReflectionException
      */
-    public static function getExecutor($type)
+    public static function getExecutor($type, $cache = null)
     {
         $executor = 'Superrosko\Dig\Executor\ExecutorDig' . ucfirst($type);
-        if(!class_exists($executor)) {
+        if (!class_exists($executor)) {
             throw new ReflectionException('Class ' . $executor . 'does not exist');
         }
 
-        return new $executor;
+        return new $executor($cache);
     }
 }
