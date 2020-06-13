@@ -52,7 +52,7 @@ interface ResourceRecordsTypesInterface
      * @return Record|null
      */
     public function getCNAME($record, bool $resolve = false);
-    
+
     /**
      * Parse PTR resource records response
      *

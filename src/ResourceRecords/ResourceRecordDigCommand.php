@@ -74,7 +74,7 @@ class ResourceRecordDigCommand extends AbstractResourceRecord
     {
         return $this->getCommon($record, $resolve);
     }
-    
+
     /**
      * @inheritDoc
      */

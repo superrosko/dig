@@ -14,7 +14,7 @@ final class Record
     const DNS_STR_CNAME = 'CNAME';
     const DNS_STR_TXT = 'TXT';
     const DNS_STR_PTR = 'PTR';
-    
+
     /**
      * @var string hostname
      */
@@ -46,7 +46,7 @@ final class Record
     public $opt;
 
     /**
-     * @var array 
+     * @var array
      */
     public static $types = [
         DNS_NS => self::DNS_STR_NS,

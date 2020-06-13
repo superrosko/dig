@@ -16,7 +16,7 @@ $name = '2.0.0.127.zen.spamhaus.org';
 $time = microtime(true);
 try {
     $executor = DigClient::getExecutor(DigClient::EXECUTOR_COMMAND);
-    $records = $executor->getRecords($name, DNS_A , '', [], false);
+    $records = $executor->getRecords($name, DNS_A, '', [], false);
     var_dump($records);
 } catch (Exception $exception) {
     echo $exception->getMessage() . PHP_EOL;
@@ -29,7 +29,7 @@ $name = 'dbltest.com.dbl.spamhaus.org';
 $time = microtime(true);
 try {
     $executor = DigClient::getExecutor(DigClient::EXECUTOR_COMMAND);
-    $records = $executor->getRecords($name, DNS_A , '', [], false);
+    $records = $executor->getRecords($name, DNS_A, '', [], false);
     var_dump($records);
 } catch (Exception $exception) {
     echo $exception->getMessage() . PHP_EOL;

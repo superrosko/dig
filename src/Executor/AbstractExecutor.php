@@ -31,7 +31,7 @@ abstract class AbstractExecutor implements ExecutorInterface
      * AbstractExecutor constructor.
      * @param CacheInterface|null $cache
      */
-    public function __construct(CacheInterface $cache  = null)
+    public function __construct(CacheInterface $cache = null)
     {
         $this->cache = $cache;
     }

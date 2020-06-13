@@ -1,17 +1,17 @@
 {
-    "require": {
-        "php": ">=7.2.5",
-        "ext-intl": "*",
-        "ext-redis": "*",
-        "vlucas/phpdotenv": "^5.0",
-        "psr/simple-cache": "1.0.1",
-        "symfony/cache": "5.2.x-dev"
-    },
-    "require-dev": {
-    },
-    "autoload": {
-        "psr-4": {
-            "Superrosko\\Dig\\": "../src/"
-        }
+  "require": {
+    "php": ">=7.2.5",
+    "ext-intl": "*",
+    "ext-redis": "*",
+    "vlucas/phpdotenv": "^5.0",
+    "psr/simple-cache": "1.0.1",
+    "symfony/cache": "5.2.x-dev"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Superrosko\\Dig\\": "../src/"
     }
+  }
 }
