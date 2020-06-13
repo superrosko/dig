@@ -2,7 +2,6 @@
 
 namespace Superrosko\Dig\Executor;
 
-use Psr\SimpleCache\CacheInterface;
 use Superrosko\Dig\Exception\DigFailGetRecordsException;
 use Superrosko\Dig\ResourceRecords\ResourceRecordDigGetDnsRecord as ResourceRecord;
 
@@ -36,13 +35,5 @@ class ExecutorDigGetDnsRecord extends AbstractExecutor implements ExecutorInterf
         } else {
             return $response;
         }
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function setCache(CacheInterface $cache = null)
-    {
-        $this->cache = $cache;
     }
 }

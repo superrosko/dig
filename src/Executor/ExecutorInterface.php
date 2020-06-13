@@ -3,7 +3,6 @@
 namespace Superrosko\Dig\Executor;
 
 use \Exception;
-use Psr\SimpleCache\CacheInterface;
 use Psr\SimpleCache\InvalidArgumentException;
 use \ReflectionException;
 use Superrosko\Dig\Exception\DigException;
@@ -38,14 +37,6 @@ interface ExecutorInterface
      * @throws DigFailGetRecordsException
      */
     public function execute($request);
-
-    /**
-     * Set up cache storage for dig responses
-     *
-     * @param CacheInterface|null $cache - object with cache storage
-     * @throws DigException
-     */
-    public function setCache(CacheInterface $cache = null);
 
     /**
      * Set up default resolver for dig

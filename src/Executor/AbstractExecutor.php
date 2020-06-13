@@ -37,16 +37,6 @@ abstract class AbstractExecutor implements ExecutorInterface
     }
 
     /**
-     * Executor can't  use cache storage by default
-     *
-     * @inheritDoc
-     */
-    public function setCache(CacheInterface $cache = null)
-    {
-        throw DigException::invalidCache();
-    }
-
-    /**
      * Executor can't  use custom resolver by default
      *
      * @inheritDoc

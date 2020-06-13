@@ -28,7 +28,7 @@ class ExecutorDigCommand extends AbstractExecutor
         if (in_array('exec', $disabled)) {
             throw new Exception('Function exec disabled in php.ini');
         }
-        
+
         parent::__construct($cache);
     }
 
@@ -57,14 +57,6 @@ class ExecutorDigCommand extends AbstractExecutor
         } else {
             return $response;
         }
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function setCache(CacheInterface $cache = null)
-    {
-        $this->cache = $cache;
     }
 
     /**
