@@ -1,31 +1,33 @@
 {
-  "name": "superrosko/dig",
-  "description": "DNS resolver for PHP",
-  "homepage": "https://github.com/superrosko/dig",
-  "license": "MIT",
-  "version": "2.0.1",
-  "require": {
-    "php": ">=7.2.5",
-    "psr/simple-cache": "1.0.1"
-  },
-  "require-dev": {
-  },
-  "keywords": [
-    "dns",
-    "dns-resolver",
-    "dns_get_record"
-  ],
-  "authors": [
-    {
-      "name": "Dmitriy Bespalov",
-      "email": "dbespalov.rosko@gmail.com",
-      "homepage": "https://rdevelab.ru",
-      "role": "Developer"
+    "name": "superrosko/dig",
+    "description": "DNS resolver for PHP",
+    "homepage": "https://github.com/superrosko/dig",
+    "license": "MIT",
+    "version": "2.0.1",
+    "require": {
+        "php": ">=7.2.5",
+        "psr/simple-cache": "1.0.1"
+    },
+    "require-dev": {
+        "codeception/codeception": "^4.1",
+        "codeception/module-asserts": "^1.0.0"
+    },
+    "keywords": [
+        "dns",
+        "dns-resolver",
+        "dns_get_record"
+    ],
+    "authors": [
+        {
+            "name": "Dmitriy Bespalov",
+            "email": "dbespalov.rosko@gmail.com",
+            "homepage": "https://rdevelab.ru",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Superrosko\\Dig\\": "src/"
+        }
     }
-  ],
-  "autoload": {
-    "psr-4": {
-      "Superrosko\\Dig\\": "src/"
-    }
-  }
 }
