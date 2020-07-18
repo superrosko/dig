@@ -65,6 +65,10 @@ App initialization:
 ```bash
 make initial
 ```
+Check tests:
+```bash
+make check_tests
+```
 
 ## Credits
 

@@ -10,3 +10,5 @@ bash_exec:
 	./docker/scripts/bash_exec.sh
 initial:
 	./docker/scripts/initial.sh
+check_tests:
+	./docker/scripts/check_tests.sh
