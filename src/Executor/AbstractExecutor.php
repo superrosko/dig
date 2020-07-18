@@ -55,7 +55,7 @@ abstract class AbstractExecutor implements ExecutorInterface
          * @var Record $record
          */
         $record = null;
-        if (count($records)) {
+        if (is_array($records) && count($records)) {
             $record = $records[array_rand($records)];
         }
         return $record;
@@ -64,14 +64,14 @@ abstract class AbstractExecutor implements ExecutorInterface
     /**
      * @inheritDoc
      */
-    public static function getRandomResolvedRecord(array $records)
+    public static function getRandomResolvedRecord(array $records): ?Record
     {
         /**
          * @var Record $record
          */
         $recordsResolved = [];
         foreach ($records as $record) {
-            if (isset($record->opt['target_ip'])) {
+            if ($record instanceof Record && isset($record->opt['target_ip'])) {
                 if (filter_var($record->opt['target_ip'], FILTER_VALIDATE_IP)) {
                     $recordsResolved[] = $record;
                 }
@@ -88,14 +88,16 @@ abstract class AbstractExecutor implements ExecutorInterface
     /**
      * @inheritDoc
      */
-    public static function chunkNameByZones(string $name)
+    public static function chunkNameByZones(string $name): array
     {
         $zonesFull = ['.'];
-        $zonesCurrent = '';
-        $zones = array_reverse(explode('.', $name));
-        foreach ($zones as $zone) {
-            $zonesCurrent = $zone . '.' . $zonesCurrent;
-            $zonesFull[] = $zonesCurrent;
+        if (!empty($name)) {
+            $zonesCurrent = '';
+            $zones = array_reverse(explode('.', $name));
+            foreach ($zones as $zone) {
+                $zonesCurrent = $zone . '.' . $zonesCurrent;
+                $zonesFull[] = $zonesCurrent;
+            }
         }
 
         return $zonesFull;
