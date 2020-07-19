@@ -12,3 +12,5 @@ initial:
 	./docker/scripts/initial.sh
 check_tests:
 	./docker/scripts/check_tests.sh
+check_codecov:
+	./docker/scripts/check_codecov.sh
