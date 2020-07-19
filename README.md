@@ -85,7 +85,7 @@ The MIT License (MIT). Please see [License File][link-license] for more informat
 [link-packagist]: https://packagist.org/packages/superrosko/dig
 [link-github]: https://github.com/superrosko/dig
 [link-license]: LICENSE.md
-[link-snyk]: https://snyk.io/test/github/superrosko/dig?targetFile=composer.lock
+[link-snyk]: https://github.com/superrosko/dig
 
 [ico-packagist]: https://img.shields.io/packagist/v/superrosko/dig.svg?style=flat
 [ico-github-size]: https://img.shields.io/github/languages/code-size/superrosko/dig.svg?style=flat
