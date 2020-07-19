@@ -7,6 +7,7 @@
 [![GitHub top language][ico-github-top-language]][link-github]
 [![Codecov][ico-codecov]][link-codecov]
 [![Known Vulnerabilities][ico-snyk]][link-snyk]
+[![HitCount][ico-hits]][link-hits]
 
 ## Introduction
 
@@ -92,6 +93,7 @@ The MIT License (MIT). Please see [License File][link-license] for more informat
 [link-license]: LICENSE.md
 [link-codecov]: https://codecov.io/github/superrosko/dig?branch=master
 [link-snyk]: https://github.com/superrosko/dig
+[link-hits]: http://hits.dwyl.com/superrosko/dig
 
 [ico-packagist]: https://img.shields.io/packagist/v/superrosko/dig.svg?style=flat
 [ico-github-size]: https://img.shields.io/github/languages/code-size/superrosko/dig.svg?style=flat
@@ -100,3 +102,4 @@ The MIT License (MIT). Please see [License File][link-license] for more informat
 [ico-license]: https://img.shields.io/packagist/l/superrosko/dig.svg?style=flat
 [ico-codecov]: https://img.shields.io/codecov/c/github/superrosko/dig.svg
 [ico-snyk]: https://snyk.io/test/github/superrosko/dig/badge.svg?targetFile=composer.lock
+[ico-hits]: http://hits.dwyl.com/superrosko/dig.svg
