@@ -5,6 +5,7 @@
 [![GitHub code size in bytes][ico-github-size]][link-github]
 [![PHP from Packagist][ico-packagist-php-version]][link-packagist]
 [![GitHub top language][ico-github-top-language]][link-github]
+[![Known Vulnerabilities][ico-snyk]][link-snyk]
 
 ## Introduction
 
@@ -84,9 +85,11 @@ The MIT License (MIT). Please see [License File][link-license] for more informat
 [link-packagist]: https://packagist.org/packages/superrosko/dig
 [link-github]: https://github.com/superrosko/dig
 [link-license]: LICENSE.md
+[link-snyk]: https://snyk.io/test/github/superrosko/dig?targetFile=composer.lock
 
 [ico-packagist]: https://img.shields.io/packagist/v/superrosko/dig.svg?style=flat
 [ico-github-size]: https://img.shields.io/github/languages/code-size/superrosko/dig.svg?style=flat
 [ico-github-top-language]: https://img.shields.io/github/languages/top/superrosko/dig.svg?style=flat
 [ico-packagist-php-version]: https://img.shields.io/packagist/php-v/superrosko/dig.svg?style=flat
-[ico-license]: https://img.shields.io/packagist/l/superrosko/dig.svg?style=flat
+[ico-license]: https://img.shields.io/packagist/l/superrosko/dig.svg?style=flat.
+[ico-snyk]: https://snyk.io/test/github/superrosko/dig/badge.svg?targetFile=composer.lock
