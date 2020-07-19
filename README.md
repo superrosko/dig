@@ -7,7 +7,6 @@
 [![GitHub top language][ico-github-top-language]][link-github]
 [![Codecov][ico-codecov]][link-codecov]
 [![Known Vulnerabilities][ico-snyk]][link-snyk]
-[![HitCount][ico-hits]][link-hits]
 
 ## Introduction
 
@@ -85,6 +84,8 @@ make check_codecov
 ## License
 
 The MIT License (MIT). Please see [License File][link-license] for more information.
+
+[![HitCount][ico-hits]][link-hits]
 
 [link-author]: https://github.com/superrosko
 [link-contributors]: https://github.com/superrosko/dig/contributors
