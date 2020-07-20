@@ -2,6 +2,7 @@
 
 namespace Superrosko\Dig;
 
+use Psr\SimpleCache\CacheInterface;
 use \ReflectionException;
 use Superrosko\Dig\Executor\ExecutorInterface;
 
@@ -20,12 +21,12 @@ class DigClient
     /**
      * Create Dig executor object
      *
-     * @param $type
-     * @param null $cache
+     * @param string $type
+     * @param CacheInterface|null $cache
      * @return ExecutorInterface
      * @throws ReflectionException
      */
-    public static function getExecutor($type, $cache = null)
+    public static function getExecutor(string $type, $cache = null)
     {
         $executor = 'Superrosko\Dig\Executor\ExecutorDig' . ucfirst($type);
         if (!class_exists($executor)) {
