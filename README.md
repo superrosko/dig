@@ -6,7 +6,6 @@
 [![PHP from Packagist][ico-packagist-php-version]][link-packagist]
 [![GitHub top language][ico-github-top-language]][link-github]
 [![Codecov][ico-codecov]][link-codecov]
-[![Known Vulnerabilities][ico-snyk]][link-snyk]
 
 ## Introduction
 
