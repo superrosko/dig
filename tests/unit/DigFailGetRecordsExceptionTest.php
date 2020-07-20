@@ -1,0 +1,46 @@
+<?php
+
+namespace unit;
+
+use ArgumentCountError;
+use Codeception\Test\Unit;
+use Superrosko\Dig\Exception\DigFailGetRecordsException;
+
+class DigFailGetRecordsExceptionTest extends Unit
+{
+
+    protected function _before()
+    {
+    }
+
+    protected function _after()
+    {
+    }
+
+    /**
+     * Testing ArgumentCountError
+     */
+    public function testGetExecutorCheckArgumentCount()
+    {
+        $this->expectException(ArgumentCountError::class);
+        new DigFailGetRecordsException();
+    }
+
+    /**
+     * Testing DigFailGetRecordsException Construct
+     */
+    public function testDigFailGetRecordsExceptionConstruct()
+    {
+        $testCode = 1;
+        $testRequest = 'test_request';
+        $testResponse = 'test_response';
+        try {
+            throw new DigFailGetRecordsException($testRequest, $testResponse, $testCode);
+        } catch (DigFailGetRecordsException $exception) {
+            $this->assertEquals($testCode, $exception->getCode());
+            $this->assertEquals($testRequest, $exception->getRequest());
+            $this->assertEquals($testResponse, $exception->getResponse());
+            $this->assertEquals('Fail when try get records', $exception->getMessage());
+        }
+    }
+}
