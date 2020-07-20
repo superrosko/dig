@@ -1,0 +1,19 @@
+image: superrosko/php:7.4-fpm
+
+services:
+  - redis:5.0
+
+cache:
+  paths:
+    - vendor/
+
+before_script:
+  # Install dependencies
+  - apt-get update && apt-get install -y dnsutils
+  # Install project dependencies.
+  - composer install
+
+test:
+  script:
+    # run tests
+    - vendor/bin/codecept run --coverage
