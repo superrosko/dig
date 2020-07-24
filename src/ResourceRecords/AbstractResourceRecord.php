@@ -66,7 +66,7 @@ abstract class AbstractResourceRecord implements ResourceRecordsInterface, Resou
     /**
      * @inheritDoc
      */
-    public function checkRecordType($recordProp)
+    public function checkRecordType($recordProp): bool
     {
         if ($recordProp == $this->convertType()) {
             return true;

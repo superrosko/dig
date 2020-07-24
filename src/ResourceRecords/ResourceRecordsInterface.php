@@ -23,7 +23,7 @@ interface ResourceRecordsInterface
      * @param $recordProp
      * @return bool
      */
-    public function checkRecordType($recordProp);
+    public function checkRecordType($recordProp): bool;
 
     /**
      * Return request for different dig executors
