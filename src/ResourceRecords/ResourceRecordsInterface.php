@@ -14,10 +14,10 @@ interface ResourceRecordsInterface
     public static function getServer(Record $record = null);
 
     /**
-     * @param $recordProp
+     * @param string $recordProp
      * @param bool $resolve
      */
-    public function resolveIp($recordProp, bool $resolve);
+    public function resolveIp(string $recordProp, bool $resolve): void;
 
     /**
      * @param $recordProp

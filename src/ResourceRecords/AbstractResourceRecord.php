@@ -56,7 +56,7 @@ abstract class AbstractResourceRecord implements ResourceRecordsInterface, Resou
     /**
      * @inheritDoc
      */
-    public function resolveIp($recordProp, bool $resolve)
+    public function resolveIp(string $recordProp, bool $resolve): void
     {
         if ($resolve) {
             $this->opt['target_ip'] = gethostbyname($recordProp);
