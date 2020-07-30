@@ -1,15 +1,13 @@
-namespace: tests
-suites:
-  unit:
-    path: unit
-settings:
-  shuffle: true
-  lint: true
 paths:
   tests: tests
   output: tests/_output
+  data: tests/_data
   support: tests/_support
-  data: tests
+  envs: tests/_envs
+actor_suffix: Tester
+extensions:
+  enabled:
+    - Codeception\Extension\RunFailed
 coverage:
   enabled: true
   include:
