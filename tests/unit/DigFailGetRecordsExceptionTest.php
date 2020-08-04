@@ -2,30 +2,11 @@
 
 namespace unit;
 
-use ArgumentCountError;
 use Codeception\Test\Unit;
 use Superrosko\Dig\Exception\DigFailGetRecordsException;
 
 class DigFailGetRecordsExceptionTest extends Unit
 {
-
-    protected function _before()
-    {
-    }
-
-    protected function _after()
-    {
-    }
-
-    /**
-     * Testing ArgumentCountError
-     */
-    public function testGetExecutorCheckArgumentCount()
-    {
-        $this->expectException(ArgumentCountError::class);
-        new DigFailGetRecordsException();
-    }
-
     /**
      * Testing DigFailGetRecordsException Construct
      */
