@@ -2,92 +2,38 @@
 
 namespace unit;
 
-use ArgumentCountError;
 use Codeception\Test\Unit;
+use PHPUnit\Framework\MockObject\MockObject;
 use Superrosko\Dig\ResourceRecords\AbstractResourceRecord;
 use Superrosko\Dig\ResourceRecords\Record;
-use Superrosko\Dig\ResourceRecords\TraitResourceRecord;
+use UnitTester;
 
 class AbstractResourceRecordCheckRecordTypeTest extends Unit
 {
-    protected function _before()
-    {
-    }
-
-    protected function _after()
-    {
-    }
-
-    private function getStubClass($name, $type, $server, $opt)
-    {
-        return new class($name, $type, $server, $opt) extends AbstractResourceRecord {
-
-            use TraitResourceRecord;
-
-            public function mockGetParamName()
-            {
-                return $this->name;
-            }
-
-            public function mockGetParamType()
-            {
-                return $this->type;
-            }
-
-            public function mockGetParamServer()
-            {
-                return $this->server;
-            }
-
-            public function mockGetParamOpt()
-            {
-                return $this->opt;
-            }
-
-            public function getRequest()
-            {
-            }
-
-            public function getRecordProps($record)
-            {
-            }
-
-            public function getNS($record, bool $resolve = false)
-            {
-            }
-
-            public function getA($record, bool $resolve = false)
-            {
-            }
-
-            public function getAAAA($record, bool $resolve = false)
-            {
-            }
-
-            public function getTXT($record, bool $resolve = false)
-            {
-            }
-
-            public function getCNAME($record, bool $resolve = false)
-            {
-            }
-
-            public function getPTR($record, bool $resolve = false)
-            {
-            }
-        };
-    }
+    /**
+     * @var UnitTester
+     */
+    protected $tester;
 
     /**
-     * Testing ArgumentCountError
+     * @param $name
+     * @param $type
+     * @param $server
+     * @param $opt
+     * @return MockObject|AbstractResourceRecord
      */
-    public function testCheckRecordTypeCheckArgumentCount()
+    private function getStubClass($name, $type, $server, $opt)
     {
-        $name = 'example.com';
-        $server = '127.0.0.1';
-        $opt = ['test_data'];
-        $this->expectException(ArgumentCountError::class);
-        $this->getStubClass($name, DNS_NS, $server, $opt)->checkRecordType();
+        $stub = $this->getMockForAbstractClass(AbstractResourceRecord::class, [$name, $type, $server, $opt]);
+        $stub->expects($this->any())
+            ->method('convertType')
+            ->will($this->returnCallback(
+                function () use ($stub) {
+                    $type = $this->tester->getPrivatePropertyValue(AbstractResourceRecord::class, 'type', $stub);
+                    return Record::$types[$type];
+                }
+            ));
+        return $stub;
     }
 
     /**
@@ -98,7 +44,6 @@ class AbstractResourceRecordCheckRecordTypeTest extends Unit
         $name = 'example.com';
         $server = '127.0.0.1';
         $opt = ['test_data'];
-        $this->assertTrue($this->getStubClass($name, DNS_NS, $server, $opt)->checkRecordType(Record::$types[DNS_NS]));
         $this->assertTrue($this->getStubClass($name, DNS_A, $server, $opt)->checkRecordType(Record::$types[DNS_A]));
         $this->assertTrue($this->getStubClass($name, DNS_AAAA, $server, $opt)->checkRecordType(Record::$types[DNS_AAAA]));
         $this->assertTrue($this->getStubClass($name, DNS_CNAME, $server, $opt)->checkRecordType(Record::$types[DNS_CNAME]));
