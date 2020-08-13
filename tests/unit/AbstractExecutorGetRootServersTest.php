@@ -13,14 +13,6 @@ use Symfony\Component\Cache\Psr16Cache;
 
 class AbstractExecutorGetRootServersTest extends Unit
 {
-    protected function _before()
-    {
-    }
-
-    protected function _after()
-    {
-    }
-
     /**
      * Testing with empty array response
      * @throws InvalidArgumentException
