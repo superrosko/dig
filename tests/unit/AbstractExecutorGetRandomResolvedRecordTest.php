@@ -2,12 +2,9 @@
 
 namespace unit;
 
-use ArgumentCountError;
 use Codeception\Test\Unit;
-use StdClass;
 use Superrosko\Dig\Executor\AbstractExecutor;
 use Superrosko\Dig\ResourceRecords\Record;
-use TypeError;
 
 class AbstractExecutorGetRandomResolvedRecordTest extends Unit
 {
@@ -25,56 +22,6 @@ class AbstractExecutorGetRandomResolvedRecordTest extends Unit
         $this->stub->expects($this->any())
             ->method('execute')
             ->will($this->returnValue([]));
-    }
-
-    protected function _after()
-    {
-    }
-
-    /**
-     * Testing ArgumentCountError
-     */
-    public function testGetRandomResolvedRecordCheckArgumentCount()
-    {
-        $this->expectException(ArgumentCountError::class);
-        $this->stub->getRandomResolvedRecord();
-    }
-
-    /**
-     * Testing TypeError
-     */
-    public function testGetRandomResolvedRecordCheckParameterTypeNull()
-    {
-        $this->expectException(TypeError::class);
-        $this->stub->getRandomResolvedRecord(null);
-    }
-
-    /**
-     * Testing TypeError
-     */
-    public function testGetRandomResolvedRecordCheckParameterTypeObject()
-    {
-        $this->expectException(TypeError::class);
-        $this->stub->getRandomResolvedRecord(new StdClass());
-    }
-
-    /**
-     * Testing TypeError
-     */
-    public function testGetRandomResolvedRecordCheckParameterTypeClosure()
-    {
-        $this->expectException(TypeError::class);
-        $this->stub->getRandomResolvedRecord(function () {
-        });
-    }
-
-    /**
-     * Testing TypeError
-     */
-    public function testGetRandomResolvedRecordCheckParameterTypeString()
-    {
-        $this->expectException(TypeError::class);
-        $this->stub->getRandomResolvedRecord('');
     }
 
     /**
