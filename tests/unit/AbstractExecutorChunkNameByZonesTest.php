@@ -2,11 +2,8 @@
 
 namespace unit;
 
-use ArgumentCountError;
 use Codeception\Test\Unit;
-use StdClass;
 use Superrosko\Dig\Executor\AbstractExecutor;
-use TypeError;
 
 class AbstractExecutorChunkNameByZonesTest extends Unit
 {
@@ -26,58 +23,8 @@ class AbstractExecutorChunkNameByZonesTest extends Unit
             ->will($this->returnValue([]));
     }
 
-    protected function _after()
-    {
-    }
-
     /**
-     * Testing ArgumentCountError
-     */
-    public function testChunkNameByZonesCheckArgumentCount()
-    {
-        $this->expectException(ArgumentCountError::class);
-        $this->stub->chunkNameByZones();
-    }
-
-    /**
-     * Testing TypeError
-     */
-    public function testChunkNameByZonesCheckParameterTypeArray()
-    {
-        $this->expectException(TypeError::class);
-        $this->stub->chunkNameByZones([]);
-    }
-
-    /**
-     * Testing TypeError
-     */
-    public function testChunkNameByZonesCheckParameterTypeNull()
-    {
-        $this->expectException(TypeError::class);
-        $this->stub->chunkNameByZones(null);
-    }
-
-    /**
-     * Testing TypeError
-     */
-    public function testChunkNameByZonesCheckParameterTypeObject()
-    {
-        $this->expectException(TypeError::class);
-        $this->stub->chunkNameByZones(new StdClass());
-    }
-
-    /**
-     * Testing TypeError
-     */
-    public function testChunkNameByZonesCheckParameterTypeClosure()
-    {
-        $this->expectException(TypeError::class);
-        $this->stub->chunkNameByZones(function () {
-        });
-    }
-
-    /**
-     * Testing TypeError
+     * Testing for empty string by parameter
      */
     public function testChunkNameByZonesWithEmptyStringInParameter()
     {
@@ -85,7 +32,7 @@ class AbstractExecutorChunkNameByZonesTest extends Unit
     }
 
     /**
-     * Testing TypeError
+     * Testing for string without dots by parameter
      */
     public function testChunkNameByZonesWithStringWithoutDotsInParameter()
     {
@@ -93,7 +40,7 @@ class AbstractExecutorChunkNameByZonesTest extends Unit
     }
 
     /**
-     * Testing TypeError
+     * Testing for string with dots by parameter
      */
     public function testChunkNameByZonesWithStringWithDotsInParameter()
     {
