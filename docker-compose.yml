@@ -1,21 +1,6 @@
 version: '3'
 services:
 
-  #PHP Service
-  dig-php:
-    build:
-      context: .
-      dockerfile: docker/services/php/Dockerfile
-    image: superrosko/php:7.4-fpm
-    container_name: dig-php
-    restart: unless-stopped
-    tty: true
-    environment:
-      SERVICE_NAME: dig-php
-      SERVICE_TAGS: dev
-    networks:
-      - internal
-
   #App Service
   dig-app:
     build:
@@ -38,8 +23,6 @@ services:
       - ./docker/services/app/conf/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - internal
-    depends_on:
-      - dig-php
 
   #Redis Service
   dig-redis:
